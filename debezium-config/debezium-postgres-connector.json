@@ -8,6 +8,7 @@
     "database.user": "postgres",
     "database.password": "postgres",
     "database.dbname": "sourcedb",
+    "topic.prefix": "sourcedb",
     "database.server.name": "sourcedb",
     "table.include.list": "public.users",
     "plugin.name": "pgoutput",
