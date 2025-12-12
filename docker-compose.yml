@@ -114,7 +114,8 @@ services:
       KAFKA_TOPIC: sourcedb.public.users
       LOG_LEVEL: INFO
     volumes:
-      - ./app:/app
+      - ./app:/app/app
+      - ./config:/app/config
       - ./logs:/app/logs
     command: python -m app.main
 
