@@ -24,6 +24,7 @@ A production-ready Python application that uses Debezium for Change Data Capture
 
 - Docker and Docker Compose
 - Python 3.11+ (for local CLI usage)
+- `uv` Python package manager (recommended) or `pip`
 - Make (optional, for convenience commands)
 
 ## Quick Start
@@ -182,7 +183,15 @@ docker exec cdc-kafka kafka-console-consumer \
 ### Running Locally (without Docker)
 
 1. Ensure PostgreSQL, Kafka, and Kafka Connect are running
-2. Install dependencies:
+2. Install dependencies using `uv`:
+   ```bash
+   # Install uv if not already installed
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   
+   # Install dependencies
+   uv pip install -r requirements.txt
+   ```
+   Or using pip (if you prefer):
    ```bash
    pip install -r requirements.txt
    ```
