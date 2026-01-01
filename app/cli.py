@@ -2,7 +2,6 @@
 
 import random
 import string
-from datetime import datetime
 from typing import Optional
 
 import click
@@ -95,7 +94,7 @@ def add(email: Optional[str], name: Optional[str], age: Optional[int], status: s
         table.add_row("Updated At", str(result[6]))
 
         console.print(table)
-        console.print(f"[green]✓ User added successfully! CDC event should be captured by Debezium.[/green]")
+        console.print("[green]✓ User added successfully! CDC event should be captured by Debezium.[/green]")
 
         cursor.close()
         conn.close()
@@ -169,7 +168,7 @@ def update(id: Optional[int], email: Optional[str], name: Optional[str], age: Op
         table.add_row("Updated At", str(result[6]))
 
         console.print(table)
-        console.print(f"[green]✓ User updated successfully! CDC event should be captured by Debezium.[/green]")
+        console.print("[green]✓ User updated successfully! CDC event should be captured by Debezium.[/green]")
 
         cursor.close()
         conn.close()
@@ -204,7 +203,7 @@ def delete(id: Optional[int]):
         conn.commit()
 
         console.print(f"[green]✓ User deleted successfully! (ID: {user[0]}, Email: {user[1]}, Name: {user[2]})[/green]")
-        console.print(f"[green]CDC event should be captured by Debezium.[/green]")
+        console.print("[green]CDC event should be captured by Debezium.[/green]")
 
         cursor.close()
         conn.close()

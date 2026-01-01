@@ -50,4 +50,3 @@ def get_logger(name: str) -> structlog.stdlib.BoundLogger:
 
 # Configure logging on module import
 configure_logging()
-
