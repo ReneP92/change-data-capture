@@ -36,6 +36,7 @@ make up
 ```
 
 This will start:
+
 - PostgreSQL (port 5432)
 - Zookeeper (port 2181)
 - Kafka (port 9092)
@@ -46,6 +47,7 @@ This will start:
 ### 2. Access the Monitoring UI
 
 Open your browser and navigate to:
+
 - **Kafka UI**: http://localhost:8080
   - View Kafka topics, messages, and consumer groups
   - Monitor Debezium connector status
@@ -55,22 +57,22 @@ Open your browser and navigate to:
 
 ```bash
 # Add a single user with random data
-python -m app.cli add --random
+uv run python -m app.cli add --random
 
 # Add a specific user
-python -m app.cli add --email "john@example.com" --name "John Doe" --age 30
+uv run python -m app.cli add --email "john@example.com" --name "John Doe" --age 30
 
 # Generate multiple random users
-python -m app.cli generate --count 5
+uv run python -m app.cli generate --count 5
 
 # List users
-python -m app.cli list
+uv run python -m app.cli list
 
 # Update a user
-python -m app.cli update --id 1 --name "Jane Doe" --status "inactive"
+uv run python -m app.cli update --id 1 --name "Jane Doe" --status "inactive"
 
 # Delete a user
-python -m app.cli delete --id 1
+uv run python -m app.cli delete --id 1
 ```
 
 ### 4. Monitor CDC Events
@@ -127,6 +129,7 @@ cp .env.example .env
 ```
 
 Key configuration options:
+
 - `KAFKA_BOOTSTRAP_SERVERS`: Kafka broker addresses
 - `KAFKA_TOPIC`: Topic to consume from
 - `POSTGRES_*`: PostgreSQL connection details
@@ -184,17 +187,15 @@ docker exec cdc-kafka kafka-console-consumer \
 
 1. Ensure PostgreSQL, Kafka, and Kafka Connect are running
 2. Install dependencies using `uv`:
+
    ```bash
    # Install uv if not already installed
    curl -LsSf https://astral.sh/uv/install.sh | sh
-   
+
    # Install dependencies
-   uv pip install -r requirements.txt
+   uv add -r requirements.txt
    ```
-   Or using pip (if you prefer):
-   ```bash
-   pip install -r requirements.txt
-   ```
+
 3. Set up environment variables in `.env`
 4. Run the consumer:
    ```bash

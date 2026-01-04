@@ -52,3 +52,13 @@ status: ## Check status of all services
 	@echo "=== Debezium Connectors ==="
 	@curl -s http://localhost:8083/connectors | python -m json.tool || echo "Kafka Connect not ready"
 
+query-data: ## Opens Harlequin for data inspection.
+	@echo "Opening Harlequin IDE..."
+	@harlequin -a postgres "postgres://postgres:postgres@localhost:5432/sourcedb"
+
+view-messages: ## Shows messages in queue
+	@echo "Viewing messages in topic..."
+	@docker exec cdc-kafka kafka-console-consumer \
+  --bootstrap-server localhost:9092 \
+  --topic sourcedb.public.users \
+  --from-beginning
